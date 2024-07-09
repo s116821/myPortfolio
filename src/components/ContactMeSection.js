@@ -28,7 +28,7 @@ const LandingSection = () => {
       type: '',
       comment: ''
     },
-    onSubmit: (values) => {onOpen(...submit(values.email, values.comment))},
+    onSubmit: (values) => {submit("", values)},
     validationSchema: Yup.object({
       firstName: Yup.string()
       .max(20, 'Must be 20 characters or less')
@@ -44,15 +44,12 @@ const LandingSection = () => {
   });
 
   useEffect(() => {
-    if(response && response.type === "success") {
-      onOpen("success", response.message)
-    } else if (response && response.type === "error") {
-      onOpen("error", response.message)
+    if (response) {
+      onOpen(response.type, response.message);
+      if (response.type === "success") {
+        formik.resetForm();
+      }
     }
-
-    setTimeout(() => {
-      onClose()
-    }, 3000)
   }, [response])
 
   return (
@@ -67,7 +64,7 @@ const LandingSection = () => {
           Contact me
         </Heading>
         <Box p={6} rounded="md" w="100%">
-          <form>
+          <form onSubmit={formik.handleSubmit}>
             <VStack spacing={4}>
               <FormControl isInvalid={formik.touched.firstName && formik.errors.firstName}>
                 <FormLabel htmlFor="firstName">Name</FormLabel>
@@ -90,11 +87,9 @@ const LandingSection = () => {
               </FormControl>
               <FormControl isInvalid={formik.touched.type && formik.errors.type}>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type">
+                <Select id="type" name="type"  {...formik.getFieldProps("type")}>
                   <option value="hireMe">Freelance project proposal</option>
-                  <option value="openSource">
-                    Open source consultancy session
-                  </option>
+                  <option value="openSource">Open source consultancy session</option>
                   <option value="other">Other</option>
                 </Select>
               </FormControl>
@@ -104,10 +99,11 @@ const LandingSection = () => {
                   id="comment"
                   name="comment"
                   height={250}
+                  {...formik.getFieldProps("comment")}
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>
-              <Button type="submit" colorScheme="purple" width="full">
+              <Button disabled={isLoading} type="submit" colorScheme="purple" width="full">
                 {isLoading ? "Loading" : "Submit"}
               </Button>
             </VStack>
