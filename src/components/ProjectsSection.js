@@ -5,28 +5,28 @@ import Card from "./Card";
 
 const projects = [
   {
-    title: "React Space",
+    title: "3D Printed Proposal Gift",
     description:
-      "Handy tool belt to create amazing AR components in a React app, with redux integration via middleware️",
-    getImageSrc: () => require("../images/photo1.jpg"),
+      "A glorified jewelry box designed and manufactured by me, so I could propose to my wife.",
+    getImageSrc: () => require("../images/proposal_project.jpg"),
   },
   {
-    title: "React Infinite Scroll",
+    title: "K80 GPU Fan Control via Arduino",
     description:
-      "A scrollable bottom sheet with virtualisation support, native animations at 60 FPS and fully implemented in JS land 🔥️",
-    getImageSrc: () => require("../images/photo2.jpg"),
+      "Project to develop runtime code for an Arduino in my workstation that monitors temperatures provided by Python service to control speeds of fans I added.",
+    getImageSrc: () => require("../images/workstation.jpg"),
   },
   {
-    title: "Photo Gallery",
+    title: "Obstacle Course Game",
     description:
-      "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
-    getImageSrc: () => require("../images/photo3.jpg"),
+      "A game I developed in Unity and C# in which the player needs to get to the other side of the arena while avoiding as many collisions as possible.",
+    getImageSrc: () => require("../images/obstacle_course.jpg"),
   },
   {
-    title: "Event planner",
+    title: "Django Endpoint Practice",
     description:
-      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
-    getImageSrc: () => require("../images/photo4.jpg"),
+      "This is a quick project in which I practiced implementing a couple endpoints via Django and included their functionality on this project tile 🔥️.",
+    getImageSrc: () => require("../images/django.jpg"),
   },
 ];
 
