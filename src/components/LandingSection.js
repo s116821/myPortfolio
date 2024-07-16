@@ -14,7 +14,7 @@ const LandingSection = () => (
     justifyContent="center"
     alignItems="center"
     isDarkBackground
-    backgroundColor="#2A4365"
+    backgroundColor="#512DA8"
   >
     <VStack spacing={4} alignItems="center">
       <Avatar size="2xl" name="Steven" src={profile}> </Avatar>

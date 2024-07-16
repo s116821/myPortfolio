@@ -4,7 +4,7 @@ import LandingSection from "./LandingSection";
 import ProjectsSection from "./ProjectsSection";
 import ContactMeSection from "./ContactMeSection";
 import Footer from "./Footer";
-import { AlertProvider } from "./alertContext";
+import { AlertProvider } from "../context/alertContext";
 import Alert from "./Alert";
 
 function MainPage() {

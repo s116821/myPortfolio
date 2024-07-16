@@ -27,13 +27,14 @@ const projects = [
     description:
       "This is a quick project in which I practiced implementing a couple endpoints via Django and included their functionality on this project tile 🔥️.",
     getImageSrc: () => require("../images/django.jpg"),
+    linkUrl: "/django-demo"
   },
 ];
 
 const ProjectsSection = () => {
   return (
     <FullScreenSection
-      backgroundColor="#14532d"
+      backgroundColor="#906406"
       isDarkBackground
       p={8}
       alignItems="flex-start"
@@ -53,6 +54,7 @@ const ProjectsSection = () => {
             title={project.title}
             description={project.description}
             imageSrc={project.getImageSrc()}
+            linkUrl={project.linkUrl}
           />
         ))}
       </Box>

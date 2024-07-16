@@ -1,4 +1,6 @@
-import { Heading, HStack, Image, Link, Text, VStack } from "@chakra-ui/react";
+import { Heading, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { Link as ReactRouterLink } from 'react-router-dom'
+import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
@@ -12,12 +14,12 @@ const Card = ({ title, description, imageSrc, linkUrl }) => {
       <Image src={imageSrc} alt={title} />
       <Heading>{title}</Heading>
       <Text>{description}</Text>
-      <HStack>
-        <Text>Learn more</Text>
-        <Link href={linkUrl} isExternal>
+      <ChakraLink as={ReactRouterLink} to={linkUrl}>
+        <HStack>
+          <Text>Learn more</Text>
           <FontAwesomeIcon icon={faArrowRight} />
-        </Link>
-      </HStack>
+        </HStack>
+      </ChakraLink>
     </VStack>
   );
 };
