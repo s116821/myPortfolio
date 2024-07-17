@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FullScreenSection from "./FullScreenSection";
-import { Box, Heading } from "@chakra-ui/react";
+import { Heading, VStack, HStack, Container, Image } from "@chakra-ui/react";
+import DjangoIcon from "../images/django-icon-for-page.jpg";
 
 function DjangoDemoPage() {
     const [message, setMessage] = useState('');
@@ -25,13 +26,33 @@ function DjangoDemoPage() {
       alignItems="flex-start"
       spacing={8}
       >
-        <Heading as="h1" id="django-title">
-          Django Endpoint Practice
-        </Heading>
-        <div>
-          <button onClick={handleClick}>Get message from Django!</button>
-          <p>{message}</p>
-        </div>
+        <VStack spacing={4} alignItems="center">
+          <Heading as="h1" size="xl" id="django-title">
+            Django Endpoint Practice
+          </Heading>
+          <Image src={DjangoIcon} alt="Django Icon" borderRadius='40' objectFit='cover' boxSize='350px'/>
+          <Heading as="h2" size="xl"></Heading>
+          <Heading as="h2" size="xl">Project Description</Heading>
+          <Container>
+            This project concerns the implementation of two endpoints via a Django backend that is hosted in AWS EC2.  
+            The endpoints are connected to two buttons: one button, when pressed, will populate the result box with a
+            randomly generated number determined and supplied by the backend; the other button, when pressed, will send
+            the current number in the result box to the Django backend to double the value and update the result box value
+            with the doubled value.  
+          </Container>
+          <Heading as="h2" size="xl"></Heading>
+          <Heading as="h2" size="xl">Endpoint Buttons</Heading>
+          <HStack spacing={4} alignItems="center">          
+            <div>
+              <button onClick={handleClick}>Get message from Django!</button>
+              <p>{message}</p>
+            </div>
+            <div>
+              <button onClick={handleClick}>Get message from Django!</button>
+              <p>{message}</p>
+            </div>
+          </HStack>
+        </VStack>
       </FullScreenSection> 
     );
 }
