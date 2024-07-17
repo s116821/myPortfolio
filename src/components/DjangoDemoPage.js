@@ -7,13 +7,13 @@ function DjangoDemoPage() {
     const [message, setMessage] = useState('');
   
     useEffect(() => {
-      fetch('/api/demo/')
+      fetch('http://localhost:8000/api/demo/')
        .then(response => response.json())
        .then(data => setMessage(data.message));
     }, []);
   
     const handleClick = () => {
-      fetch('/api/demo/')
+      fetch('http://127.0.0.1:8000/api/demo/')
        .then(response => response.json())
        .then(data => setMessage(data.message));
     };

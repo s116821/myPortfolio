@@ -26,4 +26,4 @@ yarn-error.log*
 *.sqlite3
 
 # Py cache
-/backend/backend/__pycache__
+*__pycache__
