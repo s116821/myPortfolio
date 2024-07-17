@@ -20,7 +20,7 @@ function DjangoDemoPage() {
   
     return (
       <FullScreenSection
-      backgroundColor="#18181b"
+      backgroundColor="#353535"
       isDarkBackground
       p={8}
       alignItems="flex-start"

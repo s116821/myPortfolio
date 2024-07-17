@@ -14,7 +14,7 @@ const Footer = () => {
           maxWidth="1024px"
           height={16}
         >
-          <p>Pete • © 2022</p>
+          <p>Made by Steven Sellers • Website powered by AWS EC2 & S3 • © 2024</p>
         </Flex>
       </footer>
     </Box>
