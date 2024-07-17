@@ -21,7 +21,7 @@ const projects = [
   {
     title: "Obstacle Course Game",
     description:
-      "A game I developed in Unity and C# in which the player needs to get to the other side of the arena while \
+      "A quick game I developed in Unity and C# in which the player needs to get to the other side of the arena while \
       avoiding as many collisions as possible.",
     getImageSrc: () => require("../images/obstacle_course.jpg"),
   },

@@ -7,6 +7,17 @@ This section briefly describes the steps needed to get setup for local developme
 1. Clone the repository
 2. Run `npm install` to install dependencies
 3. Run `npm start` to start the development frontend server
+4. Start another terminal
+5. Navigate to the "backend" directory (`cd backend`)
+6. Create a virtual environment via `python -m virtualenv back-env`
+    * NOTE: Make sure "virtualenv" package is installed by running `pip install virtualenv` (Admin prompt needed on Windows)
+7. Activate the python virtual environment via:
+    * `source back-env/bin/activate  # on Linux/macOS`
+    * `back-env\Scripts\activate  # on Windows`
+8. Installed the required dependencies in the virtual environment with `pip install -r requirements.txt`
+    * While in the virtual environment prompt and in the main "backend" folder, if you want to update the requirements run `pip freeze > requirements.txt`
+9. Run the Django Project with `python manage.py runserver`
+
 
 ## Production Deployment
 This section briefly describes the steps needed to deploy the website to a production server via AWS
@@ -21,6 +32,13 @@ This section briefly describes the steps needed to deploy the website to a produ
     * Enabling static website hosting in your S3 bucket settings
     * Specifying the index.html file as the index document
     * Configuring the permissions to allow public access; there are plenty of guides on how to do this, and I will not disclose the details here so as to not make it easier to abuse the security policy I've actually employed
-4. TODO: Finish rest of guide
 
 ### Backend Deployment
+1. Make sure EC2 instance is configured properly to be accessible by S3 static site
+2. SSH into the production AWS EC2 instance
+3. Pull the latest master/main branch of this repository
+4. Set up environment config file parameters as needed for deployment
+5. Navigate to the backend directory: `cd backend`
+6. Activate the virtual environment: `source back-env/bin/activate`
+7. Download dependencies: `pip install -r requirements.txt`
+8. Start the Django Project: `python manage.py runserver`
