@@ -4,6 +4,7 @@ This repository contains the source code and artifacts needed to host my portfol
 ## Local Development Setup
 This section briefly describes the steps needed to get setup for local development
 
+### Getting Started
 1. Clone the repository
 2. Run `npm install` to install dependencies
 3. Run `npm start` to start the development frontend server
@@ -18,6 +19,10 @@ This section briefly describes the steps needed to get setup for local developme
     * While in the virtual environment prompt and in the main "backend" folder, if you want to update the requirements run `pip freeze > requirements.txt`
 9. Run the Django Project with `python manage.py runserver`
 
+### Additional Helpful Tool Setup
+- If you want to be able to login to the Django Admin Web Portal, while in the already-initialized virtual environment, run:
+    * `python manage.py migrate`
+    * `python manage.py createsuperuser`
 
 ## Production Deployment
 This section briefly describes the steps needed to deploy the website to a production server via AWS
