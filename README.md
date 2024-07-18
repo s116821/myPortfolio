@@ -65,11 +65,11 @@ This section briefly describes the steps needed to deploy the website to a produ
 6. Run the automated installation script `./aws_install.sh`
     * Will additionally setup a crontab entry to start backend server on every reboot
     * NOTE: If you run this installation script multiple times, you must remove the redundant crontab entries to prevent spawning multiple backends on reboot (`crontab -e`)
-7. Start the Django Project: `nohup back-env/bin/python manage.py runserver &` and exit the SSH session
+7. Start the Django Project: `nohup back-env/bin/python manage.py runserver 0.0.0.0:8000 &` and exit the SSH session
 
 #### Manual Setup
 6. Create a virtual environment via `python -m virtualenv back-env`
 7. Activate the virtual environment: `source back-env/bin/activate`
 8. Download dependencies: `pip install -r requirements.txt`
 9. Run `python manage.py migrate` to perform any necessary first-time setup for backend
-10. Start the Django Project: `nohup python manage.py runserver &` and exit the SSH session
+10. Start the Django Project: `nohup python manage.py runserver 0.0.0.0:8000 &` and exit the SSH session
