@@ -61,4 +61,5 @@ This section briefly describes the steps needed to deploy the website to a produ
 6. Create a virtual environment via `python -m virtualenv back-env`
 7. Activate the virtual environment: `source back-env/bin/activate`
 8. Download dependencies: `pip install -r requirements.txt`
-9. Start the Django Project: `python manage.py runserver`
+9. Run `python manage.py migrate` to perform any necessary first-time setup for backend
+10. Start the Django Project: `python manage.py runserver`
