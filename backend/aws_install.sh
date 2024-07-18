@@ -14,5 +14,5 @@ virtualenv back-env && back-env/bin/pip install -r requirements.txt # installing
 back-env/bin/python manage.py migrate # performing first-time setup of django backend
 
 # Setting up crontab to run server on every reboot, drop redundant entries manually if you run this script more than once
-cron_line_to_execute="$(cur_dir)/back-env/bin/python $(cur_dir)/manage.py runserver"
+cron_line_to_execute="${cur_dir}/back-env/bin/python ${cur_dir}/manage.py runserver"
 (crontab -l; echo "@reboot ${cron_line_to_execute}";) | crontab
