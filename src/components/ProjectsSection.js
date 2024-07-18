@@ -10,6 +10,7 @@ const projects = [
       "A glorified jewelry box designed in Fusion 360 and manufactured with my 3D printer by me, so I could \
       propose to my wife.",
     getImageSrc: () => require("../images/proposal_project.jpg"),
+    linkUrl: "/proposal"
   },
   {
     title: "K80 GPU Fan Control via Arduino",
@@ -17,6 +18,7 @@ const projects = [
       "Project to develop runtime code for an Arduino in my workstation that monitors temperatures provided \
       by Python service to control speeds of fans I added.",
     getImageSrc: () => require("../images/workstation.jpg"),
+    linkUrl: "/fan-control"
   },
   {
     title: "Obstacle Course Game",
@@ -24,6 +26,7 @@ const projects = [
       "A quick game I developed in Unity and C# in which the player needs to get to the other side of the arena while \
       avoiding as many collisions as possible.",
     getImageSrc: () => require("../images/obstacle_course.jpg"),
+    linkUrl: "/obstacle-course"
   },
   {
     title: "Django Endpoint Practice",
