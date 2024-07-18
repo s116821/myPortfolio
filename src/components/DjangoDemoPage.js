@@ -1,21 +1,45 @@
 import React, { useState, useEffect } from "react";
 import FullScreenSection from "./FullScreenSection";
-import { Heading, VStack, HStack, Container, Image } from "@chakra-ui/react";
+import { 
+  Heading, 
+  VStack, 
+  HStack, 
+  Container, 
+  Image,
+  Button,
+  Box,
+  Stat,
+  StatLabel,
+  StatNumber,
+  StatHelpText} from "@chakra-ui/react";
 import DjangoIcon from "../images/django-icon-for-page.jpg";
 
 function DjangoDemoPage() {
-    const [message, setMessage] = useState('');
+    const { REACT_APP_DJANGO_ROOT_URL } = process.env;
+    const [djangoOutput, setDjangoOutput] = useState('');
   
     useEffect(() => {
-      fetch('http://localhost:8000/api/demo/')
+      fetch(`${REACT_APP_DJANGO_ROOT_URL}api/demo/`)
        .then(response => response.json())
-       .then(data => setMessage(data.message));
+       .then(data => setDjangoOutput(data.random_number));
     }, []);
   
-    const handleClick = () => {
-      fetch('http://127.0.0.1:8000/api/demo/')
+    const handleRngRequest = () => {
+      fetch(`${REACT_APP_DJANGO_ROOT_URL}api/demo/`)
        .then(response => response.json())
-       .then(data => setMessage(data.message));
+       .then(data => setDjangoOutput(data.random_number));
+    };
+
+    const handleDoubleRequest = () => {
+      fetch(`${REACT_APP_DJANGO_ROOT_URL}api/demo/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ number: djangoOutput }) // replace 42 with the number you want to post
+      })
+      .then(response => response.json())
+      .then(data => setDjangoOutput(data.doubled_number));
     };
   
     return (
@@ -43,15 +67,18 @@ function DjangoDemoPage() {
           <Heading as="h2" size="xl"></Heading>
           <Heading as="h2" size="xl">Endpoint Buttons</Heading>
           <HStack spacing={4} alignItems="center">          
-            <div>
-              <button onClick={handleClick}>Get message from Django!</button>
-              <p>{message}</p>
-            </div>
-            <div>
-              <button onClick={handleClick}>Get message from Django!</button>
-              <p>{message}</p>
-            </div>
+            <Button colorScheme='teal' onClick={handleRngRequest}>Use Django to generate a random number!</Button>
+            <Button colorScheme='pink' onClick={handleDoubleRequest}>Use Django to double the current number!</Button>
           </HStack>
+          <Box alignItems='center' textAlign="center" w='60%' bg='black' borderWidth='1px' borderRadius='full'>
+            <Stat>
+              <VStack>
+                <StatLabel>Backend Result</StatLabel>
+                <StatNumber>{djangoOutput}</StatNumber>
+                <StatHelpText>1 {"<"} Random Numbers {"<"} 10 & Doubled values {"<="} 1024</StatHelpText>
+              </VStack>
+            </Stat>
+          </Box>
         </VStack>
       </FullScreenSection> 
     );
