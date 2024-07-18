@@ -53,13 +53,23 @@ This section briefly describes the steps needed to deploy the website to a produ
     * Configuring the permissions to allow public access; there are plenty of guides on how to do this, and I will not disclose the details here so as to not make it easier to abuse the security policy I've actually employed
 
 ### Backend Deployment
+
+#### Initial Prep
 1. Make sure EC2 instance is configured properly to be accessible by S3 static site
 2. SSH into the production AWS EC2 instance and make sure that python and pip are installed for the instance
 3. Pull the latest master/main branch of this repository
 4. Copy .env.default to new file named ".env" by running `cp .env.default .env` and modify the environment variable values as needed for your production build (CURRENTLY NOT NEEDED FOR BACKEND)
 5. Navigate to the backend directory: `cd backend`
+
+#### Automated Setup (Preferred Method)
+6. Run the automated installation script `./aws_install.sh`
+    * Will additionally setup a crontab entry to start backend server on every reboot
+    * NOTE: If you run this installation script multiple times, you must remove the redundant crontab entries to prevent spawning multiple backends on reboot (`crontab -e`)
+7. Start the Django Project: `nohup back-env/bin/python manage.py runserver &` and exit the SSH session
+
+#### Manual Setup
 6. Create a virtual environment via `python -m virtualenv back-env`
 7. Activate the virtual environment: `source back-env/bin/activate`
 8. Download dependencies: `pip install -r requirements.txt`
 9. Run `python manage.py migrate` to perform any necessary first-time setup for backend
-10. Start the Django Project: `python manage.py runserver`
+10. Start the Django Project: `nohup python manage.py runserver &` and exit the SSH session
