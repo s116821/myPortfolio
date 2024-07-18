@@ -5,6 +5,11 @@ This repository contains the source code and artifacts needed to host my portfol
 The following lists the basic dependencies will need to have in order to support this application (additional dependencies are accounted for in the following sections):
 * npm (Node Package Manager)
 * python
+    * For AWS EC2 instance run:
+        ```
+        sudo yum install python3 -y
+        sudo yum install python3-pip -y
+        ```
 * virtualenv python package installed in global python instance (`pip install virtualenv`)
 
 ## Local Development Setup
@@ -49,10 +54,11 @@ This section briefly describes the steps needed to deploy the website to a produ
 
 ### Backend Deployment
 1. Make sure EC2 instance is configured properly to be accessible by S3 static site
-2. SSH into the production AWS EC2 instance
+2. SSH into the production AWS EC2 instance and make sure that python and pip are installed for the instance
 3. Pull the latest master/main branch of this repository
 4. Copy .env.default to new file named ".env" by running `cp .env.default .env` and modify the environment variable values as needed for your production build (CURRENTLY NOT NEEDED FOR BACKEND)
 5. Navigate to the backend directory: `cd backend`
-6. Activate the virtual environment: `source back-env/bin/activate`
-7. Download dependencies: `pip install -r requirements.txt`
-8. Start the Django Project: `python manage.py runserver`
+6. Create a virtual environment via `python -m virtualenv back-env`
+7. Activate the virtual environment: `source back-env/bin/activate`
+8. Download dependencies: `pip install -r requirements.txt`
+9. Start the Django Project: `python manage.py runserver`
