@@ -5,7 +5,7 @@ This repository contains the source code and artifacts needed to host my portfol
 The following lists the basic dependencies will need to have in order to support this application (additional dependencies are accounted for in the following sections):
 * npm (Node Package Manager)
 * python
-    * For AWS EC2 instance run (Won't have to do if installation script mentioned later is used):
+    * For AWS EC2 instance run (won't have to do if installation script mentioned later is used):
         ```
         sudo yum install python3 -y
         sudo yum install python3-pip -y
