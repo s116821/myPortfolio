@@ -20,19 +20,19 @@ function DjangoDemoPage() {
     const [djangoOutput, setDjangoOutput] = useState('');
   
     useEffect(() => {
-      fetch(`${REACT_APP_DJANGO_ROOT_URL}api/demo/`)
+      fetch(`${REACT_APP_DJANGO_ROOT_URL}api/rng/`)
        .then(response => response.json())
        .then(data => setDjangoOutput(data.random_number));
     }, []);
   
     const handleRngRequest = () => {
-      fetch(`${REACT_APP_DJANGO_ROOT_URL}api/demo/`)
+      fetch(`${REACT_APP_DJANGO_ROOT_URL}api/rng/`)
        .then(response => response.json())
        .then(data => setDjangoOutput(data.random_number));
     };
 
     const handleDoubleRequest = () => {
-      fetch(`${REACT_APP_DJANGO_ROOT_URL}api/demo/`, {
+      fetch(`${REACT_APP_DJANGO_ROOT_URL}api/double/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
