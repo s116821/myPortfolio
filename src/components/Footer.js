@@ -6,7 +6,7 @@ const portfolioGitUrl = "https://github.com/s116821/myPortfolio";
 
 const Footer = () => {
   return (
-    <Box backgroundColor="#18181b">
+    <Box backgroundColor="#353535">
       <footer>
         <Flex
           margin="0 auto"
