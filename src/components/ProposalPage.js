@@ -72,12 +72,12 @@ const ProposalPage = () => (
             <Text>...</Text>
           </Box>
 
-          <Box>
+          <Box width="75%">
             <Heading as="h2" size="md" mb={2}>
               CAD Model
             </Heading>
-            <Box className="fusion-360-window" mb={4}>
-              <iframe src="https://my-fusion-360-project.com/embed"></iframe>
+            <Box className="fusion-360-window" mb={1} maxWidth="100%" height="600px">
+              <iframe src="https://a360.co/3WSYWlo" width="100%" height="100%" ></iframe>
             </Box>
           </Box>
 
